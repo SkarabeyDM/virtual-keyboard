@@ -1,3 +1,18 @@
+//#region Variables
+
+:root {
+  --keyboard-color: whitesmoke;
+
+  --key-color: #3a424e;
+  --key-color_special: #292f37;
+  --key-font-color: whitesmoke;
+  --key-color_active: #93a9ca;
+  --key-color_pressed: #7385a0;
+  --key-font-color_active: #121212;
+}
+
+//#endregion Variables
+
 //#region Reset
 
 html {
@@ -9,6 +24,8 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+  transition: inherit;
 }
 
 body,
@@ -36,4 +53,136 @@ img {
   height: auto;
 }
 
+button {
+  all: unset;
+}
+
 //#endregion Reset
+
+//#region General
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+}
+
+//#endregion General
+
+//#region Keyboard
+
+.keyboard {
+  width: clamp(800px, 100%, 850px);
+  height: fit-content;
+  padding: .4em;
+
+  background-color: var(--keyboard-color);
+  border: .2rem solid;
+  border-radius: 1em;
+
+  font-size: 1.5rem;
+
+  &__keys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+  }
+
+  &__row {
+    display: flex;
+    width: 100%;
+    gap: .25em;
+  }
+
+  &__key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    height: 2em;
+    width: 2em;
+
+    border-radius: .5em;
+    background-color: var(--key-color);
+    color: var(--key-font-color);
+
+    box-shadow: .1em .1em .02em rgba($color: #292f37, $alpha: 1),
+      .1em .1em .5em rgba($color: #292f37, $alpha: .5);
+
+    font-family: Arial,
+      Helvetica,
+      sans-serif;
+
+    transition: .2s ease;
+
+    cursor: pointer;
+
+    &:hover,
+    &:active{
+      background-color: var(--key-color_active) !important;
+      color: var(--key-font-color_active) !important;
+    }
+
+    &:active {
+      box-shadow: .04em .04em .00em rgba($color: #292f37, $alpha: 1), .1em .1em .5em rgba($color: #292f37, $alpha: .5);
+
+      &::before,
+      &::after {
+        transform: scale(.9);
+      }
+    }
+    &.active, &.icon, &.icon-font.active{
+      background-color: var(--key-color_pressed);
+      box-shadow: .04em .04em .00em rgba($color: #292f37, $alpha: 1), .1em .1em .5em rgba($color: #292f37, $alpha: .5);
+    }
+
+    &::before {
+      content: attr(data-key);
+    }
+
+    &::after {
+      content: attr(data-alt-key);
+      display: table-cell;
+      vertical-align: middle;
+      position: absolute;
+      font-size: .5em;
+      top: .25em;
+      left: 0;
+      width: 1.5em;
+      height: 1em;
+      text-align: center;
+    }
+
+    &.icon {
+      background-color: var(--key-color_special);
+
+      &-font {
+        font-family: "Material Icons Round";
+        background-color: var(--key-color_special);
+      }
+    }
+
+    &_wide {
+      flex-grow: 1;
+    }
+
+    &_extra-wide {
+      flex-grow: 5;
+    }
+  }
+}
+
+//#endregion Keyboard
+
+//#region Other
+
+.textarea {
+
+  width: 100%;
+
+}
+
+//#endregion Other
