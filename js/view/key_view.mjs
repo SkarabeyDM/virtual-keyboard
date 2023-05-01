@@ -30,7 +30,6 @@ export default class KeyView extends EventTarget {
     this.keyElement.addEventListener('click', () => {
       const event = new KeyboardEvent('keypress', { code: this.code });
       this.dispatchEvent(event);
-      /* console.log(event); */
     });
 
     this.key = key;
