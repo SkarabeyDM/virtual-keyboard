@@ -7,7 +7,7 @@
   --key-color_special: #292f37;
   --key-font-color: whitesmoke;
   --key-color_active: #93a9ca;
-  --key-color_pressed: #7385a0;
+  --key-color_pressed: #5a687e;
   --key-font-color_active: #121212;
 }
 
@@ -74,7 +74,7 @@ button {
 //#region Keyboard
 
 .keyboard {
-  width: clamp(800px, 100%, 850px);
+  width: clamp(768px, 100%, 850px);
   height: fit-content;
   padding: .4em;
 
@@ -121,7 +121,7 @@ button {
     cursor: pointer;
 
     &:hover,
-    &:active{
+    &:active {
       background-color: var(--key-color_active) !important;
       color: var(--key-font-color_active) !important;
     }
@@ -134,7 +134,9 @@ button {
         transform: scale(.9);
       }
     }
-    &.active, &.icon, &.icon-font.active{
+
+    &.active,
+    &.icon.active {
       background-color: var(--key-color_pressed);
       box-shadow: .04em .04em .00em rgba($color: #292f37, $alpha: 1), .1em .1em .5em rgba($color: #292f37, $alpha: .5);
     }
@@ -154,6 +156,7 @@ button {
       width: 1.5em;
       height: 1em;
       text-align: center;
+      transform-origin: bottom right;
     }
 
     &.icon {
@@ -161,7 +164,6 @@ button {
 
       &-font {
         font-family: "Material Icons Round";
-        background-color: var(--key-color_special);
       }
     }
 
@@ -180,9 +182,10 @@ button {
 //#region Other
 
 .textarea {
-
   width: 100%;
 
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
 }
 
 //#endregion Other
