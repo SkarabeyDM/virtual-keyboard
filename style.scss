@@ -121,12 +121,14 @@ button {
     cursor: pointer;
 
     &:hover,
-    &:active {
+    &:active,
+    &.click {
       background-color: var(--key-color_active) !important;
       color: var(--key-font-color_active) !important;
     }
 
-    &:active {
+    &:active,
+    &.click {
       box-shadow: .04em .04em .00em rgba($color: #292f37, $alpha: 1), .1em .1em .5em rgba($color: #292f37, $alpha: .5);
 
       &::before,
@@ -135,8 +137,8 @@ button {
       }
     }
 
-    &.active,
-    &.icon.active {
+    &.pressed,
+    &.icon.pressed {
       background-color: var(--key-color_pressed);
       box-shadow: .04em .04em .00em rgba($color: #292f37, $alpha: 1), .1em .1em .5em rgba($color: #292f37, $alpha: .5);
     }

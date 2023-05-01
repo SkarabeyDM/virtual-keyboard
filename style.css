@@ -91,17 +91,17 @@ button {
   transition: 0.2s ease;
   cursor: pointer;
 }
-.keyboard__key:hover, .keyboard__key:active {
+.keyboard__key:hover, .keyboard__key:active, .keyboard__key.click {
   background-color: var(--key-color_active) !important;
   color: var(--key-font-color_active) !important;
 }
-.keyboard__key:active {
+.keyboard__key:active, .keyboard__key.click {
   box-shadow: 0.04em 0.04em 0em #292f37, 0.1em 0.1em 0.5em rgba(41, 47, 55, 0.5);
 }
-.keyboard__key:active::before, .keyboard__key:active::after {
+.keyboard__key:active::before, .keyboard__key:active::after, .keyboard__key.click::before, .keyboard__key.click::after {
   transform: scale(0.9);
 }
-.keyboard__key.active, .keyboard__key.icon.active {
+.keyboard__key.pressed, .keyboard__key.icon.pressed {
   background-color: var(--key-color_pressed);
   box-shadow: 0.04em 0.04em 0em #292f37, 0.1em 0.1em 0.5em rgba(41, 47, 55, 0.5);
 }
